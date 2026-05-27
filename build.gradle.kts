@@ -111,7 +111,9 @@ allprojects {
     val publishingExtension = extensions.getByType(PublishingExtension::class.java)
     configure<MavenPublishBaseExtension> {
       publishToMavenCentral(automaticRelease = true)
-      signAllPublications()
+      if (providers.gradleProperty("okioSkipSigning").orNull == null) {
+        signAllPublications()
+      }
       pom {
         description.set("A modern I/O library for Android, Java, and Kotlin Multiplatform.")
         name.set(project.name)
