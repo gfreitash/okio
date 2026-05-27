@@ -54,6 +54,8 @@ import platform.posix.realpath
 import platform.posix.remove
 import platform.posix.rename
 import platform.posix.set_posix_errno
+import platform.posix.stat
+import platform.posix.symlink
 import platform.posix.timespec
 
 internal actual val PLATFORM_TEMPORARY_DIRECTORY: Path
